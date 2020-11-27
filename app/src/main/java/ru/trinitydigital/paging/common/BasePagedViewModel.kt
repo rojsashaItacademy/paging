@@ -13,6 +13,7 @@ abstract class BasePagedViewModel<T, D : BaseDataSource<T>> : ViewModel() {
         return LivePagedListBuilder(
             sourceFactory,
             PagedList.Config.Builder()
+                .setPageSize(20)
                 .build()
         ).build()
     }

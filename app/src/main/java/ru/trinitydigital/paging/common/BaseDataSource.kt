@@ -1,5 +1,6 @@
 package ru.trinitydigital.paging.common
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
@@ -32,6 +33,12 @@ abstract class BaseDataSource<T>(
             runCatching {
                 val result = getListByPageNumber(offset = 0, limit = limit)
                 result?.data?.let { callback.onResult(it, 0, 1) }
+            }.onFailure {
+                Log.d("asdasdasd", it.localizedMessage)
+                Log.d("asdasdasd", it.localizedMessage)
+                Log.d("asdasdasd", it.localizedMessage)
+                Log.d("asdasdasd", it.localizedMessage)
+                Log.d("asdasdasd", it.localizedMessage)
             }
         }
     }
@@ -40,6 +47,8 @@ abstract class BaseDataSource<T>(
         runCatching {
             val result = getListByPageNumber(offset = 20 * params.key, limit = limit)
             result?.data?.let { callback.onResult(it, params.key + 1) }
+        }.onFailure {
+            Log.d("asdasdasd", "asdasdsadsad")
         }
     }
 

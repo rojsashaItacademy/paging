@@ -9,7 +9,14 @@ interface PagingInteractor {
 }
 
 class PagingInteractorImpl(private val service: SharesService) : PagingInteractor {
+
     override suspend fun loadData(limit: Int, offset: Int): BasePagingModel<Data> {
-        return service.getShares(" asdasdsad", "asdasdsad", "adasdasd", limit, offset)
+        return service.getShares(
+            apiKey = "c06ea77867714c7b46d31197cc5d5d67",
+            symbols = "AAPL",
+            sort = "DESC",
+            limit = limit,
+            offset = offset
+        )
     }
 }

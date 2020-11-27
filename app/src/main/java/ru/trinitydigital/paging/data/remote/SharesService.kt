@@ -10,7 +10,7 @@ interface SharesService {
     @GET("eod")
     suspend fun getShares(
         @Query("access_key") apiKey: String,
-        @Query("symbols") title: String,
+        @Query("symbols") symbols: String,
         @Query("sort") sort: String,
         @Query("limit") limit: Int,
         @Query("offset") offset: Int
